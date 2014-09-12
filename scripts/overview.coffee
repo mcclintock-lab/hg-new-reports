@@ -24,11 +24,13 @@ class OverviewTab extends ReportTab
     new_size =  @addCommas size
     
     dist_to_shore = @recordSet('SwimPontoon', 'DistanceFromShore').raw('SHORELINE')
-    console.log("dist to shore is ", dist_to_shore)
-
 
     shipping = @recordSet('SwimPontoon', 'DistanceFromShore').raw('SHIPPING')
-
+    console.log("shipping....", shipping)
+    if shipping == "Yes"
+      shipping = true
+    else
+      shipping = false
     try
       avg_depth =  @recordSet('SwimPontoon', 'DistanceFromShore').raw('AVG_DEPTH')
     catch
@@ -51,11 +53,12 @@ class OverviewTab extends ReportTab
       anyAttributes: @model.getAttributes().length > 0
       admin: @project.isAdmin window.user
       dist_to_shore: dist_to_shore
-      shipping: shipping
+
       size: new_size
       avg_depth: avg_depth
       isCollection: isCollection
       d3IsPresent: d3IsPresent
+      crossesShippingChannel: shipping
 
     @$el.html @template.render(context, partials)
     @enableLayerTogglers()

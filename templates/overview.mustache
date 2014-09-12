@@ -37,8 +37,8 @@
 </div>
 
 <div class="reportSection size">
-  <h4>Shipping Channels<a href="#" data-toggle-node="53191afaeb1fe0ac0d0b2027">show shipping channel</a></h4>
+  <h4>Shipping Channels<a href="#" data-toggle-node="52d5af3ac03e516417000278">show shipping channel</a></h4>
   <p class="large">
-    The swim route to your proposed pontoon <strong>{{#crossesShippingChannel}}crosses{{/crossesShippingChannel}}{{^crossesShippingChannel}}does not cross{{/crossesShippingChannel}}</strong> an active shipping channel.
+    {{#crossesShippingChannel}}<strong>Warning: </strong>{{/crossesShippingChannel}}The swim route to your proposed pontoon <strong>{{#crossesShippingChannel}}crosses{{/crossesShippingChannel}}{{^crossesShippingChannel}}does not cross{{/crossesShippingChannel}}</strong> an active shipping channel.
   </p>
 </div>
