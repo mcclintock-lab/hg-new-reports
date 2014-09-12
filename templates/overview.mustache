@@ -1,0 +1,44 @@
+{{#sketchClass.deleted}}
+<div class="alert alert-warn" style="margin-bottom:10px;">
+  This sketch was created using the "{{sketchClass.name}}" template, which is
+  no longer available. You will not be able to copy this sketch or make new
+  sketches of this type.
+</div>
+{{/sketchClass.deleted}}
+{{#d3IsPresent}}
+<div class="reportSection size">
+  <h4>Distance from Shore</h4>
+        <div class="large-header">The closest land is <strong>{{dist_to_shore}}</strong> m away:</div>
+        <div class="viz2" style="position:relative;"></div>
+  </p>
+</div>
+{{/d3IsPresent}}
+{{^d3IsPresent}}
+<div class="reportSection size">
+  <h4>Distance from Shore</h4>
+    <p class="large">
+      The distance to the closest point on land is <strong>{{dist_to_shore}}</strong> meters.
+  </p>
+</div>
+{{/d3IsPresent}}
+<div class="reportSection size">
+  <h4>Average Depth</h4>
+  <p class="large">
+    <p>TBD</p>
+  </p>
+</div>
+
+
+<div class="reportSection size">
+  <h4>Size</h4>
+  <p class="large">
+    <p>TBD</p>
+  </p>
+</div>
+
+<div class="reportSection size">
+  <h4>Shipping Channels<a href="#" data-toggle-node="53191afaeb1fe0ac0d0b2027">show shipping channel</a></h4>
+  <p class="large">
+    The swim route to your proposed pontoon <strong>{{#crossesShippingChannel}}crosses{{/crossesShippingChannel}}{{^crossesShippingChannel}}does not cross{{/crossesShippingChannel}}</strong> an active shipping channel.
+  </p>
+</div>
