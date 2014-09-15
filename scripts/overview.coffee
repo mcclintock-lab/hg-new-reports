@@ -77,7 +77,7 @@ class OverviewTab extends ReportTab
   drawViz: (dist_to_shore) ->
     if window.d3
       el = @$('.viz2')[0]
-      maxScale = d3.max([5000 * 1.2, dist_to_shore * 1.2])
+      maxScale = d3.max([5000 * 1.2])
       ranges = [
         {
           name: 'Warmup'
@@ -104,7 +104,8 @@ class OverviewTab extends ReportTab
       x = d3.scale.linear()
         .domain([0, maxScale])
         .range([0, 400])
-      
+      if dist_to_shore > maxScale
+        dist_to_shore = maxScale
       chart = d3.select(el)
       chart.selectAll("div.range")
         .data(ranges)
