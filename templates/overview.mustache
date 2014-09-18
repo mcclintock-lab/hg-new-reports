@@ -21,24 +21,24 @@
   </p>
 </div>
 {{/d3IsPresent}}
+
 <div class="reportSection size">
-  <h4>Average Depth</h4>
+  <h4>Depth</h4>
   <p class="large">
-    <p>TBD</p>
+    The water depth at the swim pontoon is <strong>{{depth}}</strong>.
   </p>
 </div>
-
 
 <div class="reportSection size">
   <h4>Size</h4>
   <p class="large">
-    <p>TBD</p>
+    The swim pontoon is <strong>{{size}} square meters</strong>. This should be sufficient to support the use within the area.
   </p>
 </div>
 
 <div class="reportSection size">
   <h4>Shipping Channels<a href="#" data-toggle-node="52d5af3ac03e516417000278">show shipping channel</a></h4>
   <p class="large">
-    {{#crossesShippingChannel}}<strong>Warning: </strong>{{/crossesShippingChannel}}The swim route to your proposed pontoon <strong>{{#crossesShippingChannel}}crosses{{/crossesShippingChannel}}{{^crossesShippingChannel}}does not cross{{/crossesShippingChannel}}</strong> an active shipping channel.
+    {{#crossesShippingChannel}}<strong>Warning: </strong>{{/crossesShippingChannel}} The shortest route from your swim pontoon to shore <strong>{{#crossesShippingChannel}}crosses{{/crossesShippingChannel}}{{^crossesShippingChannel}}does not cross{{/crossesShippingChannel}}</strong> an active shipping channel.
   </p>
 </div>

@@ -20,22 +20,24 @@ class OverviewTab extends ReportTab
   render: () ->
 
     size = @recordSet('SwimPontoon', 'DistanceFromShore').float('SIZE')
-    
     new_size =  @addCommas size
     
     dist_to_shore = @recordSet('SwimPontoon', 'DistanceFromShore').raw('SHORELINE')
-
     shipping = @recordSet('SwimPontoon', 'DistanceFromShore').raw('SHIPPING')
-    console.log("shipping....", shipping)
+
     if shipping == "Yes"
       shipping = true
     else
       shipping = false
     try
-      avg_depth =  @recordSet('SwimPontoon', 'DistanceFromShore').raw('AVG_DEPTH')
+      depth =  @recordSet('SwimPontoon', 'DistanceFromShore').raw('AVG_DEPTH')
     catch
-      avg_depth = "unknown"
+      depth = "unknown"
 
+    if depth == -1 
+      depth = "unknown"
+    else
+      depth = depth+" meters"
     isCollection = @model.isCollection()
 
     #show tables instead of graph for IE
@@ -55,7 +57,7 @@ class OverviewTab extends ReportTab
       dist_to_shore: dist_to_shore
 
       size: new_size
-      avg_depth: avg_depth
+      depth: depth
       isCollection: isCollection
       d3IsPresent: d3IsPresent
       crossesShippingChannel: shipping
